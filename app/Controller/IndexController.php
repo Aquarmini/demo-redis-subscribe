@@ -12,12 +12,19 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Constants\Channel;
+
 class IndexController extends Controller
 {
     public function index()
     {
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
+
+        $redis = di()->get(\Redis::class);
+
+        $redis->publish(Channel::TEST, $user);
+
         return $this->response->success([
             'user' => $user,
             'method' => $method,
