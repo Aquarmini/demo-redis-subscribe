@@ -18,9 +18,9 @@ use Hyperf\Process\AbstractProcess;
 use Hyperf\Process\Annotation\Process;
 
 /**
- * @Process(name="RedisConsumerProgress")
+ * @Process(name="RedisConsumer")
  */
-class RedisConsumerProgress extends AbstractProcess
+class RedisConsumerProcess extends AbstractProcess
 {
     public function handle(): void
     {
